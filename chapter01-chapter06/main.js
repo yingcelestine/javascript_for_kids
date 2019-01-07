@@ -56,7 +56,7 @@ const reducer = (animal1, animal2) => {
 };
 console.log(animals.reduce(reducer, lastAnimal));
 console.log(animals);
-
+//****animals[2] = ["Cat"], but animals.indexOf(["Cat"]) = -1
 console.log(animals[2]);
 console.log(animals.indexOf(["Cat"]));
 console.log(animals[Math.floor(Math.random() * 3)]);
@@ -157,3 +157,85 @@ let myCrazyObject = {
 console.log(myCrazyObject["some array"][2].number);
 console.log(myCrazyObject["some array"][2]["number"]);
 
+//chapter 06
+let message = "Hello world!"
+console.log(message);
+let name = "Celesy";
+console.log("Hello, " + name);
+if (name.length < 7) {
+    console.log("Your name isn't very long.");
+};
+let name1 = "Celestine";
+console.log("Hello, " + name1);
+if (name1.length > 7) {
+    console.log("Wow, you have a REALLY long name!");
+} else {
+    console.log("Your name isn't very long.");
+};
+let dish = "sweet and sour pork";
+if (dish === "lemon chicken") {
+    console.log("Great! I'm having lemon chicken!");
+} else if (dish === "beef with black bean sauce") {
+    console.log("I'm having the beef.");
+} else if (dish === "sweet and sour pork") {
+    console.log("Ok, I'll have the pork.");
+} else {
+    console.log("well, I guess I'll have rice then.")
+};
+
+let name3 = "Anni";
+if (name3 === "Anni") {
+    console.log("Hello me!");
+} else if (name3 === "John") {
+    console.log("hi, dad.");
+} else if (name3 === "Shelly") {
+    console.log("hi, mom.");
+} else {
+    console.log("Hello stranger!");
+};
+
+let things = ["clothes", "shoes", "toothbrush", "pen", "suitcase"]
+for (let i = 0; i < things.length; i++) {
+    console.log("I have " + things[i] + ".");
+};
+for (let i in things) {
+    console.log("I have " + things[i] + ".");
+};
+
+for (let a = 3; a < 10000; a *= 3) {
+    console.log(a);
+};
+let a = 3;
+while (a < 10000) {
+    console.log(a);
+    a *= 3;
+};
+
+let animals1 = ["Cat", "Fish", "Lemur", "Komodo Dragon"];
+for (let i in animals1) {
+    animals1[i] = "Awesome " + animals1[i];
+};
+console.log(animals1);
+let alphabet = "abcdefghijklmnopqrstuvwxyz";
+let randomString = "";
+while (randomString.length != alphabet.length) {
+    randomString += alphabet[Math.floor(Math.random() * alphabet.length)];
+};
+console.log(randomString);
+
+let input = "javascript is awesome";
+let output = "";
+for (let i in input) {
+    if (input[i] === "a") {
+        output += "4";
+    } else if (input[i] === "e") {
+        output += "3";
+    } else if (input[i] === "i") {
+        output += "1";
+    } else if (input[i] === "o") {
+        output += "0";
+    } else {
+        output += input[i];
+    }
+};
+console.log(output);

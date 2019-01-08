@@ -239,3 +239,125 @@ for (let i in input) {
     }
 };
 console.log(output);
+
+//chapter 08
+let ourFirstFuction = () => {
+    console.log("Hello world!");
+};
+ourFirstFuction();
+let sayHelloTo = (name) => {
+    console.log("Hello " + name + "!");
+};
+sayHelloTo("Anni");
+const drawCats1 = (times) => {
+    for (let i = 0; i < times; i++) {
+        console.log(i + "=^.^=");
+    }
+};
+drawCats1(10);
+function drawCats2(times, things) {
+    for (let i = 0; i < times; i++) {
+        console.log(i + things);
+    }
+};
+drawCats2(5, "(>_<)");
+
+const newFunction = function (number) {
+    return number * 2;
+};
+console.log(newFunction(8));
+console.log(newFunction(3) + newFunction(2));
+console.log("Hello");
+let fifthLetter = (name) => {
+    if (name.length < 5) {
+        return;
+    }
+    if (name.length < 10) {
+        return "The fifth letter of your name is " + name[4] + ".";
+    }
+    return "You have a so long name, it's cool!"
+};
+console.log(fifthLetter("Celestine"));
+console.log(fifthLetter("John"));
+console.log(fifthLetter("Philipulytaste"));
+
+const addFunction = (a, b) => {
+    return a + b;
+};
+const multiplyFunction = (m, n) => {
+    return m * n;
+};
+console.log(addFunction(multiplyFunction(36325, 9824), 777));
+
+const areArraysSame = (a, b) => {
+    if (a.length !== b.length) {
+        return false;
+    }
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) {
+            return false;
+        }
+    }
+    return true;
+};
+console.log(areArraysSame([1, 2, 3], [4, 5, 6]));
+console.log(areArraysSame([1, 2, 3], [1, 2, 3]));
+console.log(areArraysSame([1, 2, 3], [1, 2, 3, 4]));
+console.log(areArraysSame([1, 2, 3], [1, 2, 6]));
+
+let words = ["javascript", "monkey", "amazing", "pancake", "excellent", "come"];
+let word = words[Math.floor(Math.random() * words.length)];
+let answerArray = [];
+for (let i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+}
+/* const answerArray1 = (array) => {
+    for (let i in array) {
+if 
+    }
+}*/
+let ary = [1, 2, 3];
+for (let i in ary) {
+    console.log(ary[i]);
+}
+let remainingLetters = word.length;
+let guessesCount = 0;
+let Counts;
+// Game code goes here
+while (remainingLetters > 0 && guessesCount < 5) {
+    // Show the player their progress            
+    alert(answerArray.join(" "));
+    // Take input from the player
+    let guess = prompt("Guess a letter, or click Cancel to stop playing.");
+    if (guess === null) {
+        break;
+    } else if (guess.length !== 1) {
+        guessesCount += 1;
+        Counts = 5 - guessesCount;
+        alert("Please enter a single letter, your remaining number of chances is : " + Counts);
+    } else {
+        // update the game state with the guess
+        guess = guess.toLowerCase();
+        let nMatched = 0;
+        for (let j = 0; j < word.length; j++) {
+            if (word[j] === guess) {
+                answerArray[j] = guess;
+                remainingLetters--;
+                nMatched++;
+            }
+        }
+        if (nMatched === 0) {
+            guessesCount += 1;
+            Counts = 5 - guessesCount;
+            alert("Please try again, your remaining number of chances is : " + Counts);
+        }
+    }
+};
+// update answerArray and remainingLetters for every correct
+if (remainingLetters === 0 && answerArray[i] !== "_") {
+    alert(answerArray.join(""));
+    alert("Good job! The answer was " + word);
+};
+if (guessesCount === 5) {
+    alert("I'm sorry, your challenge is over. Good luck next time!");
+};

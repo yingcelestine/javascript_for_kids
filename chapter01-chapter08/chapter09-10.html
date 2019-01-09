@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="main-heading">Hello world!</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        /* 
+        headingElement = document.getElementById("main-heading");
+         console.log(headingElement.innerHTML);
+         let newHeadingText = prompt("Please provide a new heading:");
+         headingElement.innerHTML = newHeadingText;
+        
+        let newHeadingText = prompt("Please provide a new heading:");
+        $("#main-heading").text(newHeadingText);
+        $("body").append("<p>This is a new paragraph</p>");
+        for (let i = 0; i < 3; i++) {
+            let hobby = prompt("Tell me one of your hobbies");
+            $("body").append("<p>" + hobby + "</p>");
+        };
+        //$("h1").fadeOut(3000);
+        //$("h1").text("This will fade out").fadeOut(5000);
+        $("h1").fadeOut(10000).fadeIn(2000);
+        $("h1").slideUp(10000).slideDown(1000);
+         */
+        /*
+       let array = ["John", "Lily", "Bill", "Tom"];
+       for (let i in array) {
+           $("body").append("<p>" + array[i] + "</p>");
+       };
+       $("#main-heading").text("My friends");
+       $("h1").hide(2000).fadeIn(3000);
+       $("p").append(" smells!");
+       for (let i = 0, j = 1000; i < 6; i++ , j += 1000) {
+           $("#main-heading").fadeOut(j).fadeIn(j);
+       };
+       $("body").append("<h2>" + "Please keep a secret." + "</h2>");
+       $("h2").delay(5000).fadeOut(2000).fadeIn(2000);
+       $("p").fadeTo(2000, 0.5);
+       
+        let leftOffset = 1;
+        let moveHeading = function () {
+            $("#main-heading").offset({ left: leftOffset });
+            leftOffset *= 2;
+            if (leftOffset > 200) {
+                leftOffset = 0;
+            }
+        };
+        setInterval(moveHeading, 100);
+        */
+        const clickHandler = function (event) {
+            console.log("Click! " + event.pageX + " " + event.pageY);
+        };
+        $("h1").click(clickHandler);
+
+        $("html").click(function (event) {
+            $("#main-heading").offset({
+                left: event.pageX,
+                top: event.pageY
+            });
+        });
+        let leftOffset1 = 0;
+        let topOffset = 0;
+        let count = 0;
+        $("html").offset(() => {
+            ("#main-heading").offset({
+                left: leftOffset1,
+                top: topOffset
+            });
+            leftOffset1++;
+            if (leftOffset1 === 5 && topOffset === 0) {
+                ("#main-heading").offset({
+                    left: leftOffset1,
+                    top: topOffset
+                });
+                topOffset++;
+            };
+            if (leftOffset1 === 5 && topOffset === 5) {
+                ("#main-heading").offset({
+                    left: leftOffset1,
+                    top: topOffset
+                });
+                leftOffset1--;
+            };
+            if (leftOffset1 === 0 && topOffset === 5) {
+                ("#main-heading").offset({
+                    left: leftOffset1,
+                    top: topOffset
+                });
+                topOffset--;
+            };
+            if (leftOffset1 === 0 && topOffset === 1) {
+                ("#main-heading").offset({
+                    left: leftOffset1,
+                    top: topOffset
+                });
+                topOffset--;
+                count++;
+                console.log("This is my " + count + "round.")
+                return moveHeading1()
+            }
+        });
+        setInterval(moveHeading1, 30);
+
+    </script>
+</body>
+
+</html>

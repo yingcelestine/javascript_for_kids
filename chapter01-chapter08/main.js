@@ -305,20 +305,65 @@ console.log(areArraysSame([1, 2, 3], [1, 2, 3]));
 console.log(areArraysSame([1, 2, 3], [1, 2, 3, 4]));
 console.log(areArraysSame([1, 2, 3], [1, 2, 6]));
 
-let words = ["javascript", "monkey", "amazing", "pancake", "excellent", "come"];
+// game1
+const pickWord = (array) => {
+    return array[Math.floor(Math.random() * array.length)];
+};
+let word1 = pickWord(["javascript", "monkey", "amazing", "pancake", "excellent", "come"]);
+const setupAnswerArray = (string) => {
+    let array = [];
+    if (array.length !== string.length) {
+        for (let i in string) {
+            array[i] = "_"
+        }
+    }
+    return array;
+};
+let answerArray1 = setupAnswerArray(word1);
+let remainingLetters = word1.length;
+const showPlayerProgress = (array) => {
+    return alert(array.join(" "));
+};
+const getGuess = () => {
+    return prompt("Guess a letter, or click Cancel to stop playing.");
+};
+const updateGameState = (string1, string2, array) => {
+    let number = 0
+    for (let i in string2) {
+        if (string1 === string2[i]) {
+            array[i] = string2[i];
+            number += 1
+        }
+    }
+    return number;
+};
+const showAnswerAndCongratulatePlayer = (array) => {
+    if (remainingLetters === 0 && array.indexOf("_") === -1) {
+        alert(array.join(""));
+        return alert("Good job! The answer was " + word1);
+    }
+}
+while (remainingLetters > 0) {
+    showPlayerProgress(answerArray1);
+    let guess = getGuess();
+    if (guess === null) {
+        break;
+    } else if (guess.length !== 1) {
+        alert("Please enter a single letter.")
+    } else {
+        let correctGuess = updateGameState(guess, word1, answerArray1);
+        remainingLetters -= correctGuess;
+    }
+}
+showAnswerAndCongratulatePlayer(answerArray1);
+
+
+//game1(1)
+/*let words = ["javascript", "monkey", "amazing", "pancake", "excellent", "come"];
 let word = words[Math.floor(Math.random() * words.length)];
 let answerArray = [];
 for (let i = 0; i < word.length; i++) {
     answerArray[i] = "_";
-}
-/* const answerArray1 = (array) => {
-    for (let i in array) {
-if 
-    }
-}*/
-let ary = [1, 2, 3];
-for (let i in ary) {
-    console.log(ary[i]);
 }
 let remainingLetters = word.length;
 let guessesCount = 0;
@@ -361,3 +406,41 @@ if (remainingLetters === 0 && answerArray[i] !== "_") {
 if (guessesCount === 5) {
     alert("I'm sorry, your challenge is over. Good luck next time!");
 };
+*/
+
+//chapter 09
+let helloElement = document.getElementById("Hello");
+/*console.log(helloElement);
+console.log(helloElement.innerHTML);
+let newHelloElement = prompt("Please provide a new heading:");
+helloElement.innerHTML = newHelloElement;*/
+
+/*let newHelloElement1 = prompt("Please provide a new heading:");
+$("#Hello").text(newHelloElement1);
+$("body").append("<p>This is a new paragraph</p>");*/
+
+//chapter 10
+let timeup = () => {
+    alert("Time's up!")
+};
+setTimeout(timeup, 3000);
+let doHomeworkAlarm = () => {
+    alert("Hey! You need to do your homework!");
+};
+let timeoutId = setTimeout(doHomeworkAlarm, 60000);
+console.log(timeoutId);
+clearTimeout(timeoutId);
+let counter = 5;
+let printMessage = () => {
+    if (counter > 25) return;
+    console.log("You have been staring at your console for " + counter + " seconds");
+    counter += 5;
+};
+let intervalId = setInterval(printMessage, 5000);
+console.log(intervalId);
+clearInterval(intervalId);
+let clickHandler = (event) => {
+    console.log("Click!" + event.pageX + " " + event.pageY);
+};
+$("h1").click(clickHandler);
+

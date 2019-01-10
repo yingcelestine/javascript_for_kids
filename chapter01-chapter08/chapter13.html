@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="800"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let ctx = canvas.getContext("2d");
+        ctx.fillRect(0, 0, 10, 10);
+        for (let i = 0; i < 8; i++) {
+            ctx.fillRect(i * 10, i * 10, 10, 10);
+        }
+        ctx.fillStyle = "Purple";
+        ctx.fillRect(90, 90, 50, 50);
+        ctx.fillStyle = "Pink";
+        ctx.fillRect(110, 140, 10, 25);
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(50, 165, 130, 10);
+        ctx.fillStyle = "SkyBlue";
+        ctx.fillRect(80, 175, 70, 70);
+        ctx.fillStyle = "Chocolate";
+        ctx.fillRect(80, 245, 10, 60);
+        ctx.fillRect(140, 245, 10, 60);
+        ctx.fillStyle = "Blue";
+
+
+
+
+
+    </script>
+</body>
+
+</html>

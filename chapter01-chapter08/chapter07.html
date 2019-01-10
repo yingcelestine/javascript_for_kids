@@ -9,6 +9,8 @@
 </head>
 
 <body>
+
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
     <script>
         //chapter 07
 
@@ -21,7 +23,7 @@
         //   console.log("Yeah, that's fine. You're still cool!");
         //};
         //alert("JavaScript is awesome!");
-        let words = ["javascript", "monkey", "amazing", "pancake", "excellent", "come"];
+        /*let words = ["javascript", "monkey", "amazing", "pancake", "excellent", "come"];
         let word = words[Math.floor(Math.random() * words.length)];
         let answerArray = [];
         for (let i = 0; i < word.length; i++) {
@@ -68,6 +70,84 @@
         if (guessesCount === 5) {
             alert("I'm sorry, your challenge is over. Good luck next time!");
         };
+        */
+        class Car {
+            constructor(x, y, imgUrl) {
+                this.x = x;
+                this.y = y;
+                this._stepSize = 1;
+                this.imgUrl = imgUrl;
+                this.imgElement = $(`<img src="${imgUrl}" alt=""/>`);
+                this.imgElement.css({
+                    position: "absolute",
+                    left: this.x,
+                    top: this.y,
+                    "max-width": "150px",
+                })
+            }
+
+
+
+            draw() {
+                $("body").append(this.imgElement);
+
+            }
+
+            moveRight(stepSize) {
+                this.x += stepSize;
+                this.imgElement.css({
+                    left: this.x,
+                })
+            }
+
+            moveLeft(stepSize) {
+                this.x -= stepSize;
+                this.imgElement.css({
+                    left: this.x,
+                })
+            }
+
+            moveDown(stepSize) {
+                this.y += stepSize;
+                this.imgElement.css({
+                    top: this.y,
+                })
+            }
+
+            accelerateDown(a) {
+                this._stepSize += a;
+                this.y += this._stepSize;
+                this.imgElement.css({
+                    top: this.y,
+                })
+            }
+
+
+            moveUp(stepSize) {
+                this.y -= stepSize;
+                this.imgElement.css({
+                    top: this.y,
+                })
+            }
+        }
+        // Car.carImg = '<img src="http://nostarch.com/images/car.png" alt=""/>';
+        // Car.carElement
+
+        let tesla = new Car(0, 0, "https://i.imgur.com/ghKd4tl.jpg");
+        let volvo = new Car(500, 500, "https://i.imgur.com/HcMMaRM.jpg");
+        tesla.draw();
+        volvo.draw();
+        // setInterval(() => {
+        //     tesla.moveDown();
+        // }, 200);
+        console.log(tesla.imgElement);
+        tesla.stepSize = 20;
+        let setIntervalId = setInterval(() => {
+            tesla.accelerateDown(0);
+        }, 20);
+        setTimeout(() => { clearInterval(setIntervalId) }, 100000);
+
+
 
     </script>
 

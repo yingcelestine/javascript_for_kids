@@ -9,23 +9,11 @@
 </head>
 
 <body>
-    <canvas id="canvas_snake" width="500" height="500"></canvas>
+    <canvas id="canvas_snake" width="630" height="630"></canvas>
     <script src="snake.js"></script>
     <script>
-        let canvas = document.getElementById("canvas_snake");
-        let snake = new Snake(canvas);
-
-
-        snake.expand();
-        snake.expand();
-        setInterval(() => {
-            snake.context.clearRect(0, 0, 500, 500);
-            snake.draw();
-            snake.expand();
-            snake.deleteTail();
-        }, 100);
-
-
+        let game = new Game();
+        game.start();
     </script>
 
 

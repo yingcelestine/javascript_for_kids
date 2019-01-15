@@ -145,6 +145,7 @@ class Poison {
         this.x = squareSize * Math.floor(Math.random() * (this.canvasWidth / squareSize - 1)) + (squareSize / 2);
         this.y = squareSize * Math.floor(Math.random() * (this.canvasWidth / squareSize));
     }
+
     changePosition() {
         this.x = squareSize * Math.floor(Math.random() * (this.canvasWidth / squareSize - 1)) + (squareSize / 2);
         this.y = squareSize * Math.floor(Math.random() * (this.canvasWidth / squareSize - 1));
@@ -198,8 +199,8 @@ class Game {
             if (this.snakeOnApple()) {
                 this.snake.expand();
                 this.addScore();
-                this.poison.changePosition();
                 this.apple.changePosition();
+                // this.poison.changePosition();
             } else if (this.snakeOnPoison()) {
                 this.gameOver("Game Over!");
                 return;
@@ -273,10 +274,17 @@ class Game {
         return false;
     }
 
+    handlePoison() {
+        if (this.score % 3 === 0) {
+            this.poison.changePosition();
+        }
+    }
+
     addScore() {
         if (this.score < 50) {
             this.score++;
             this.drawScore();
+            this.handlePoison();
         } else {
             this.gameOver("You Have Won!");
         };

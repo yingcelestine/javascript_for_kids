@@ -6,43 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML</title>
-    <style>
-        body {
-            background-color: #d2b48c;
-            margin-left: 20%;
-            margin-right: 20%;
-            border: 2px dotted black;
-            padding: 10px 10px 10px 10px;
-            font-family: sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="chapter01.css">
 </head>
+
 
 <body>
     <h1 id="Welcome">Welcome to the Head First Lounge</h1>
-    <a target="_blank" href="Survey_Form.html">See survey form</a>
-    <a href="Norman_Borlaug.html#Welcome">See Norman</a>
+    <div class="shadow" id="box">This box has a shadow</div>
+    <p><a target="_blank" href="Survey_Form.html">This link is normal</a></p>
+    <p><a href="Norman_Borlaug.html#Welcome">This link has been visited</a></p>
+    <p><a href="http://www.google.com">The mouse is hovering over this link</a></p>
     <a href="#bottom">Go to the bottom</a>
 
     <p>Join us any evening for refreshing elixirs, conversarion and maybe a game or two of <strong><em>Dance Dance
-                Revolution</em></strong>.
-        Wireless access id always provided; BYOWS.</p>
-    <p style="font-size:35px;">
+                Revolution</em></strong>.</p>
+    <div class="formula">A<sup>2</sup> + B<sup>3</sup> = C<sup>4</sup></div>
+    <div class="formula">i<sub>0</sub> = 0</div>
+    <div class="contact">
+        <span class="name">Andy</span>
+        <span class="phone">111-1111</span>
+    </div>
+    <div class="contact">
+        <span class="name">Elizabeth</span>
+        <span class="phone">222-2222</span>
+    </div>
+    <div class="contact">
+        <span class="name">Matthew</span>
+        <span class="phone">333-3333</span>
+    </div>
+
+
+    <p id="neverknow">
         You never know when you'll need a good quote, how about <q>To be or not to be</q>, or <q>Wherever you go, there
             you are</q>.
     </p>
-    <p style="font-size:35px;">
+    <p id="tryqanddoublequote">
         You never know when you'll need a good quote, how about "To be or not to be", or "Wherever you go, there you
         are".
     </p>
     <p>
-        <q>Tries to enroll in the military after the Pearl Harbor attack, but is
+        <q id="tries">Tries to enroll in the military after the Pearl Harbor attack, but is
             rejected. Instead, the military asked his lab to work on waterproof glue, DDT to control malaria,
             disenfectants, and other applied science.</q>
     </p>
     <blockquote>Receives a Ph.D. in Genetics and Plant Pathology.</blockquote>
 
-    <p><q>a 100% salary increase from Dupont, leaves behind his pregnant wife, and flies to Mexico to head a
+    <p id="Nerman"><q>a 100% salary increase from Dupont, leaves behind his pregnant wife, and flies to Mexico to head
+            a
             new plant pathology program. Over the next 16 years, his team breeds 6,000 different strains of disease
             resistent wheat - including different varieties for each major climate on Earth.</q>
     </p>
